@@ -14,7 +14,7 @@ def on_message(client, userdata, msg):
     print(msg.topic + " "+str(msg.payload))
 
 def on_publish(client, data, mid):
-    print(str(mid))
+    print("published", str(mid))
 
 dht_device = adafruit_dht.DHT11(board.D4)
 fieldnames = ['datetime', 'temperature', 'humidity']
