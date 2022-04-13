@@ -24,7 +24,7 @@ client.on_message = on_message
 client.tls_set(tls_version=mqtt.ssl.PROTOCOL_TLS)
 client.username_pw_set("duke__", "dukeHiveMQ8")
 client.connect("3221fc9b1a7e4e76ad7cce10b8489e96.s1.eu.hivemq.cloud", 8883, 60)
-
+client.loop_forever()
 
 with open(f'{datetime.now().date()}.csv', 'w') as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
@@ -45,5 +45,3 @@ while True:
     except Exception as e:
         print(f'Fatal Error; {str(e)}')
     time.sleep(60)
-
-    client.loop_forever()
