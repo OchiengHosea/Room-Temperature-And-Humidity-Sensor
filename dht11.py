@@ -11,7 +11,7 @@ def on_connect(client, data, flags, rc):
     client.subscribe("/smarthouse/duke/temphum")
 
 def on_message(client, userdata, msg):
-    print(msg.topic + " "+str(msg.payload))
+    print("received", msg.topic + " "+str(msg.payload))
 
 def on_publish(client, data, mid):
     print("published", str(mid))
