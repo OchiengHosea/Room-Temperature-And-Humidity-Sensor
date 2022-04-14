@@ -18,7 +18,7 @@ def on_publish(client, data, mid):
 
 dht_device = adafruit_dht.DHT11(board.D4)
 fieldnames = ['datetime', 'temperature', 'humidity']
-client = mqtt.Client("", True, None, mqtt.MQTTv31)
+client = mqtt.Client("rasp4b", True, None, mqtt.MQTTv31)
 client.on_connect = on_connect
 client.on_message = on_message
 client.tls_set(tls_version=mqtt.ssl.PROTOCOL_TLS)
