@@ -17,7 +17,7 @@ def on_publish(client, data, mid):
     print("published", str(mid))
 
 dht_device = adafruit_dht.DHT11(board.D4)
-fieldnames = ['datetime', 'temperature', 'humidity']
+fieldnames = ['datetime', 'timestamp', 'temperature', 'humidity']
 client = mqtt.Client("rasp4b", True, None, mqtt.MQTTv31)
 client.on_connect = on_connect
 client.on_message = on_message
