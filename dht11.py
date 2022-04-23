@@ -35,7 +35,7 @@ while True:
         with open(f'{datetime.now().date()}.csv', 'a') as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             data = {
-                'datetime': datetime.strftime(datetime.now(), "yyyy-MM-dd HH:mm:ss"),
+                'datetime': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 'timestamp': time.time() * 10000000,
                 'temperature': temperature,
                 'humidity': humidity
