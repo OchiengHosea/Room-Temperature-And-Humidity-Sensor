@@ -31,7 +31,7 @@ with open(f'{datetime.now().date()}.csv', 'w') as csv_file:
     
 while True:
     try:
-        temperature, temperature = dht_device.temperature, dht_device.humidity
+        temperature, humidity = dht_device.temperature, dht_device.humidity
         with open(f'{datetime.now().date()}.csv', 'a') as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             data = {
