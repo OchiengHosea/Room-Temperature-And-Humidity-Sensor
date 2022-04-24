@@ -45,4 +45,4 @@ while True:
         print(f"Temp {temperature}; himidity {humidity}")
     except Exception as e:
         print(f'Fatal Error; {str(e)}')
-    time.sleep(5)
+    time.sleep(60)
