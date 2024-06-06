@@ -17,6 +17,7 @@ ptyprocess==0.7.0
 pyftdi==0.53.3
 Pygments==2.10.0
 pyserial==3.5
+python-dotenv==0.21.1
 pyusb==1.2.1
 rpi-ws281x==4.3.0
 RPi.GPIO==0.7.0

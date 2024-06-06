@@ -1,3 +1,6 @@
-testenv
-prodenv
+testvenv
+prodvenv
 venv
+data/
+__pycache__/
+.env

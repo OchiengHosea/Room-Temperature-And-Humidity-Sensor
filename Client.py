@@ -1,11 +1,7 @@
 import json
 import paho.mqtt.client as paho
 
-# public static final String hiveMQURL = "3221fc9b1a7e4e76ad7cce10b8489e96.s1.eu.hivemq.cloud";
-    # public static final int hiveMQPort = 8883;
-    # public static final String hiveCloudUsername = "duke__";
-    # public static final String hiveCloudPass = "dukeHiveMQ8";
-
+# This module is not completed yet, it uses paho lib feel free to submit a PR
 class Client:
     def __init__(self) -> None:
         self.client = paho.Client()
