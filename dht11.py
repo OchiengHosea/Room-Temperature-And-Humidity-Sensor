@@ -42,7 +42,7 @@ if __name__ == '__main__':
     PHYSICAL_ADDRESS = args.physical_address
 
     dht_device = adafruit_dht.DHT11(board.D4)
-    fieldnames = ['datetime', 'timestamp', 'temperature', 'humidity']
+    fieldnames = ['datetime', 'timestamp', 'temperature', 'humidity', 'latitude', 'longitude', 'physical_address', 'uuid']
     client = mqtt.Client("rasp4b", True, None, mqtt.MQTTv31)
     client.on_connect = on_connect
     client.on_message = on_message
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     client.connect(MQTT_HOST, 8883, 60)
     client.loop_start()
 
-    with open(f'data/{datetime.now().date()}.csv', 'w') as csv_file:
+    with open(f'data/{DEVICE_UUID}/{datetime.now().date()}.csv', 'w') as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         
     while True:
