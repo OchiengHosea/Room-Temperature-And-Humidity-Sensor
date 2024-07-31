@@ -15,6 +15,7 @@ MQTT_PASSWORD = os.getenv('MQTT_PASSWORD')
 MQTT_HOST = os.getenv('MQTT_HOST')
 MQTT_PUB_TOPIC = os.getenv('MQTT_PUB_TOPIC')
 KAFKA_PUB_TOPIC = os.getenv('KAFKA_PUB_TOPIC')
+DEVICE_UUID = os.getenv('DEVICE_UUID')
 
 def on_connect(client, data, flags, rc):
     print("CONNACK received with code %d" % (rc))
@@ -48,7 +49,8 @@ while True:
                 'datetime': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 'timestamp': time.time() * 10000000,
                 'temperature': temperature,
-                'humidity': humidity
+                'humidity': humidity,
+                'uuid':str(DEVICE_UUID)
                 }
             writer.writerow(data)
             client.publish(f'/{MQTT_PUB_TOPIC}', json.dumps(data))
