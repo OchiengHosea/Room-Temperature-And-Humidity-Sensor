@@ -33,16 +33,16 @@ if __name__ == '__main__':
     parser.add_argument('--device_id', type=uuid.UUID, required=True, dest='device_id', help='Add device_id')
     parser.add_argument('--latitude', type=float, required=False, dest='latitude', help='Latitude of device')
     parser.add_argument('--longitude', type=float, required=False, dest='longitude', help='Longitude of device')
-    parser.add_argument('--physical_address', type=str, required=False, dest='physical_address', help='Address(Location name) of device')
+    parser.add_argument('--location', type=str, required=False, dest='location', help='Address(Location name) of device')
     args = parser.parse_args()
 
     DEVICE_UUID = args.device_id
     LATITUDE = args.latitude
     LONGITUDE = args.longitude
-    PHYSICAL_ADDRESS = args.physical_address
+    LOCATION = args.location
 
     dht_device = adafruit_dht.DHT11(board.D4)
-    fieldnames = ['datetime', 'timestamp', 'temperature', 'humidity', 'latitude', 'longitude', 'physical_address', 'uuid']
+    fieldnames = ['datetime', 'timestamp', 'temperature', 'humidity', 'latitude', 'longitude', 'location', 'uuid']
     client = mqtt.Client("rasp4b", True, None, mqtt.MQTTv31)
     client.on_connect = on_connect
     client.on_message = on_message
@@ -66,7 +66,7 @@ if __name__ == '__main__':
                     'humidity': humidity,
                     'latitude': LATITUDE,
                     'longitude': LONGITUDE,
-                    'physical_address': PHYSICAL_ADDRESS,
+                    'location': LOCATION,
                     'uuid': str(DEVICE_UUID)
                     }
                 writer.writerow(data)
