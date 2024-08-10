@@ -37,9 +37,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     DEVICE_UUID = args.device_id
-    LATITUDE = args.latitude
-    LONGITUDE = args.longitude
-    LOCATION = args.location
+    LATITUDE = args.latitude or 0.0
+    LONGITUDE = args.longitude or 0.0
+    LOCATION = args.location or ''
 
     dht_device = adafruit_dht.DHT11(board.D4)
     fieldnames = ['datetime', 'timestamp', 'temperature', 'humidity', 'latitude', 'longitude', 'location', 'uuid']
